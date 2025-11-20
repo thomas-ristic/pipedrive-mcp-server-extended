@@ -1,0 +1,488 @@
+{
+  "server_name": "pipedrive-mcp-server-extended",
+  "version": "1.0.0",
+  "intents": [
+    {
+      "keyword": "pipedrive get users",
+      "tool_name": "get-users",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive users",
+      "tool_name": "get-users",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list users",
+      "tool_name": "get-users",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get deals",
+      "tool_name": "get-deals",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive deals",
+      "tool_name": "get-deals",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list deals",
+      "tool_name": "get-deals",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get deal",
+      "tool_name": "get-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive deal",
+      "tool_name": "get-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get deal notes",
+      "tool_name": "get-deal-notes",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive deal notes",
+      "tool_name": "get-deal-notes",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search deals",
+      "tool_name": "search-deals",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get persons",
+      "tool_name": "get-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive persons",
+      "tool_name": "get-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive contacts",
+      "tool_name": "get-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list persons",
+      "tool_name": "get-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get person",
+      "tool_name": "get-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive person",
+      "tool_name": "get-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search persons",
+      "tool_name": "search-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search contacts",
+      "tool_name": "search-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get organizations",
+      "tool_name": "get-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive organizations",
+      "tool_name": "get-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive companies",
+      "tool_name": "get-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list organizations",
+      "tool_name": "get-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get organization",
+      "tool_name": "get-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive organization",
+      "tool_name": "get-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search organizations",
+      "tool_name": "search-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get pipelines",
+      "tool_name": "get-pipelines",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive pipelines",
+      "tool_name": "get-pipelines",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list pipelines",
+      "tool_name": "get-pipelines",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get pipeline",
+      "tool_name": "get-pipeline",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive pipeline",
+      "tool_name": "get-pipeline",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get stages",
+      "tool_name": "get-stages",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive stages",
+      "tool_name": "get-stages",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search leads",
+      "tool_name": "search-leads",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search all",
+      "tool_name": "search-all",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create deal",
+      "tool_name": "create-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add deal",
+      "tool_name": "create-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive new deal",
+      "tool_name": "create-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create person",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add person",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive new person",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create contact",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add contact",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create organization",
+      "tool_name": "create-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add organization",
+      "tool_name": "create-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive new organization",
+      "tool_name": "create-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create company",
+      "tool_name": "create-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add company",
+      "tool_name": "create-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get users",
+      "tool_name": "get-users",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive users",
+      "tool_name": "get-users",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list users",
+      "tool_name": "get-users",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get deals",
+      "tool_name": "get-deals",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive deals",
+      "tool_name": "get-deals",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list deals",
+      "tool_name": "get-deals",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get deal",
+      "tool_name": "get-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive deal",
+      "tool_name": "get-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get deal notes",
+      "tool_name": "get-deal-notes",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive deal notes",
+      "tool_name": "get-deal-notes",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search deals",
+      "tool_name": "search-deals",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get persons",
+      "tool_name": "get-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive persons",
+      "tool_name": "get-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive contacts",
+      "tool_name": "get-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list persons",
+      "tool_name": "get-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get person",
+      "tool_name": "get-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive person",
+      "tool_name": "get-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search persons",
+      "tool_name": "search-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search contacts",
+      "tool_name": "search-persons",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get organizations",
+      "tool_name": "get-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive organizations",
+      "tool_name": "get-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive companies",
+      "tool_name": "get-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list organizations",
+      "tool_name": "get-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get organization",
+      "tool_name": "get-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive organization",
+      "tool_name": "get-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search organizations",
+      "tool_name": "search-organizations",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get pipelines",
+      "tool_name": "get-pipelines",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive pipelines",
+      "tool_name": "get-pipelines",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive list pipelines",
+      "tool_name": "get-pipelines",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get pipeline",
+      "tool_name": "get-pipeline",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive pipeline",
+      "tool_name": "get-pipeline",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive get stages",
+      "tool_name": "get-stages",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive stages",
+      "tool_name": "get-stages",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search leads",
+      "tool_name": "search-leads",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive search all",
+      "tool_name": "search-all",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create deal",
+      "tool_name": "create-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add deal",
+      "tool_name": "create-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive new deal",
+      "tool_name": "create-deal",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create person",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add person",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive new person",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create contact",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add contact",
+      "tool_name": "create-person",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create organization",
+      "tool_name": "create-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add organization",
+      "tool_name": "create-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive new organization",
+      "tool_name": "create-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive create company",
+      "tool_name": "create-organization",
+      "priority": 10
+    },
+    {
+      "keyword": "pipedrive add company",
+      "tool_name": "create-organization",
+      "priority": 10
+    }
+  ],
+  "parameter_extractors": {},
+  "reminder_message": "pipedrive-mcp-server-extended MCP server. See OI.md for installation and configuration details."
+}
