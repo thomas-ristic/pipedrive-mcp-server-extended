@@ -142,9 +142,13 @@ Optional (Rate Limiting):
 - `PIPEDRIVE_RATE_LIMIT_MAX_CONCURRENT` - Maximum concurrent requests (default: 2)
 
 Optional (Transport Configuration):
-- `MCP_TRANSPORT` - Transport type: `stdio` (default, for local use) or `sse` (for Docker/HTTP access)
-- `MCP_PORT` - Port for SSE transport (default: 3000, only used when `MCP_TRANSPORT=sse`)
-- `MCP_ENDPOINT` - Message endpoint path for SSE (default: /message, only used when `MCP_TRANSPORT=sse`)
+- `MCP_TRANSPORT` - Transport type:
+  - `stdio` (default) - Standard I/O for local CLI usage
+  - `sse` - Server-Sent Events (HTTP) for Docker/remote access
+  - `mcpo` - SSE + mcpo proxy for streaming HTTP (OpenWebUI compatible)
+- `MCP_PORT` - Port for SSE transport (default: 3000, used when `MCP_TRANSPORT=sse` or `mcpo`)
+- `MCP_ENDPOINT` - Message endpoint path for SSE (default: /message, used when `MCP_TRANSPORT=sse` or `mcpo`)
+- `MCPO_PORT` - Port for mcpo proxy (default: 8080, only used when `MCP_TRANSPORT=mcpo`)
 
 ## Using with Claude
 
@@ -169,6 +173,55 @@ To use this server with Claude for Desktop:
 
 2. Restart Claude for Desktop
 3. In the Claude application, you should now see the Pipedrive tools available
+
+## Using with OpenWebUI
+
+OpenWebUI requires streaming HTTP transport, which can be enabled using the `mcpo` transport mode. The mcpo proxy translates the MCP SSE protocol into streaming HTTP that OpenWebUI can consume.
+
+### Docker Setup for OpenWebUI
+
+1. Create a `.env` file with your configuration:
+   ```bash
+   PIPEDRIVE_API_TOKEN=your_api_token_here
+   PIPEDRIVE_DOMAIN=your-company.pipedrive.com
+   MCP_TRANSPORT=mcpo
+   MCPO_PORT=8080
+   ```
+
+2. Run with Docker Compose:
+   ```bash
+   docker-compose up -d
+   ```
+
+3. The server will be available at `http://localhost:8080`
+   - Main endpoint: `http://localhost:8080` (OpenWebUI connects here)
+   - Internal SSE: `http://localhost:3000/sse` (used by mcpo)
+
+4. Configure in OpenWebUI:
+   - Go to Settings → Connections → MCP Servers
+   - Add new server with URL: `http://pipedrive-mcp-server:8080` (if in same Docker network)
+   - Or use: `http://localhost:8080` (if OpenWebUI is not in Docker)
+
+### Direct Docker Run for OpenWebUI
+
+```bash
+docker run -d \
+  -p 8080:8080 \
+  -p 3000:3000 \
+  -e PIPEDRIVE_API_TOKEN=your_api_token_here \
+  -e PIPEDRIVE_DOMAIN=your-company.pipedrive.com \
+  -e MCP_TRANSPORT=mcpo \
+  -e MCPO_PORT=8080 \
+  ghcr.io/juhokoskela/pipedrive-mcp-server:main
+```
+
+### Transport Comparison
+
+| Transport | Use Case | Port | Client Connection |
+|-----------|----------|------|-------------------|
+| `stdio` | Local CLI, Claude Desktop | N/A | stdin/stdout |
+| `sse` | Direct HTTP access, custom clients | 3000 | SSE protocol |
+| `mcpo` | OpenWebUI, streaming HTTP clients | 8080 | Streaming HTTP |
 
 ## Available Tools
 

@@ -20,8 +20,8 @@ RUN npm run build
 # Production stage
 FROM node:20-alpine
 
-# Install wget for healthcheck
-RUN apk add --no-cache wget
+# Install wget for healthcheck and other utilities
+RUN apk add --no-cache wget curl
 
 # Set working directory
 WORKDIR /app
@@ -35,14 +35,21 @@ RUN npm ci --only=production
 # Copy built application from builder stage
 COPY --from=builder /app/build ./build
 
+# Copy entrypoint script
+COPY entrypoint.sh ./
+RUN chmod +x entrypoint.sh
+
 # Set NODE_ENV to production
 ENV NODE_ENV=production
 
-# Expose the default MCP port (can be overridden via environment variable)
+# Expose the default MCP port (SSE transport)
 EXPOSE 3000
+
+# Expose the default mcpo port (mcpo transport)
+EXPOSE 8080
 
 # Run as non-root user for security
 USER node
 
-# Start the application
-CMD ["node", "build/index.js"]
+# Use entrypoint script to handle different transports
+ENTRYPOINT ["./entrypoint.sh"]
