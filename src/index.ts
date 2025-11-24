@@ -875,6 +875,17 @@ server.tool(
         body: JSON.stringify(dealData)
       });
       const responseData = await response.json();
+
+      if (!response.ok) {
+        return {
+          content: [{
+            type: "text",
+            text: `Error creating deal: HTTP ${response.status} ${response.statusText}\n\n${JSON.stringify(responseData, null, 2)}`
+          }],
+          isError: true
+        };
+      }
+
       return {
         content: [{
           type: "text",
@@ -936,6 +947,17 @@ server.tool(
         body: JSON.stringify(personData)
       });
       const responseData = await response.json();
+
+      if (!response.ok) {
+        return {
+          content: [{
+            type: "text",
+            text: `Error creating person: HTTP ${response.status} ${response.statusText}\n\n${JSON.stringify(responseData, null, 2)}`
+          }],
+          isError: true
+        };
+      }
+
       return {
         content: [{
           type: "text",
@@ -1006,6 +1028,17 @@ server.tool(
         body: JSON.stringify(orgData)
       });
       const responseData = await response.json();
+
+      if (!response.ok) {
+        return {
+          content: [{
+            type: "text",
+            text: `Error creating organization: HTTP ${response.status} ${response.statusText}\n\n${JSON.stringify(responseData, null, 2)}`
+          }],
+          isError: true
+        };
+      }
+
       return {
         content: [{
           type: "text",
